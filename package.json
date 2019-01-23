@@ -1,0 +1,17 @@
+{
+  "name": "MpeTreeTone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mpe": "^1.0.4",
+    "tone": "^13.4.9",
+    "tree": "^0.1.3"
+  }
+}
