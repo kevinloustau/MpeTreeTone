@@ -39,11 +39,10 @@ function animate() {
 function MPETimbreToAnimations(data){
   var timbre = data * 2;
   cube.scale.y = timbre;
-  console.log(timbre);
+  //console.log(timbre);
 }
 
 module.exports = {
   setupScene,
-  animate,
   MPETimbreToAnimations
 }
