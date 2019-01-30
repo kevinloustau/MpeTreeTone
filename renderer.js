@@ -1,5 +1,5 @@
-const sound = require('./src/sound');
-const visual = require('./src/visual');
+const { MPEToTone } = require('./src/sound');
+const { setupScene, animate, MPETimbreToAnimations } = require('./src/visual');
 const mpeInstrument = require('mpe').default;
 
 

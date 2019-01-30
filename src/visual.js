@@ -1,17 +1,25 @@
 const THREE = require('three');
 
-// ============== THREE ============== //
-export function setupScene() {
+// This is a shared state, it should leave outside of your functions
+// although mutating stating like you are doing is not considered as the best practice,
+// you should inject this state as parameter of your functions
+let cube;
+let renderer;
+let camera;
+let scene;
 
-  var scene = new THREE.Scene();
-  var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-  var renderer = new THREE.WebGLRenderer();
+// ============== THREE ============== //
+function setupScene() {
+
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement);
 
-  var geometry = new THREE.BoxGeometry(1, 1, 1);
-  var material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-  var cube = new THREE.Mesh(geometry, material);
+  const geometry = new THREE.BoxGeometry(1, 1, 1);
+  const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+  cube = new THREE.Mesh(geometry, material);
   scene.add(cube)
 
   camera.position.z = 5;
@@ -28,8 +36,14 @@ function animate() {
 }
 
 
-export function MPETimbreToAnimations(data){
+function MPETimbreToAnimations(data){
   var timbre = data * 2;
   cube.scale.y = timbre;
   console.log(timbre);
+}
+
+module.exports = {
+  setupScene,
+  animate,
+  MPETimbreToAnimations
 }
