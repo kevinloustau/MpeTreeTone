@@ -1,14 +1,14 @@
 const { MPEToTone } = require('./src/sound');
-const { setupScene, animate, MPETimbreToAnimations } = require('./src/visual');
+const { Visual, MPETimbreToAnimations } = require('./src/visual');
 const mpeInstrument = require('mpe').default;
 
 
 // ==============  MPE ============== //
 const instrument = mpeInstrument();
 
-// Request MIDI device access from the Web MIDI API
+Visual();
+
 navigator.requestMIDIAccess().then(access => {
-  // Iterate over the list of inputs returned
   access.inputs.forEach(midiInput => {
     // Send 'midimessage' events to the mpe.js `instrument` instance
     midiInput.addEventListener(
